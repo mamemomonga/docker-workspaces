@@ -24,7 +24,7 @@ do_home() {
 		exit 1
 	fi
 	mkdir -p $VOL_MOUNT
-	docker run --rm $IMAGE_NAME tar cC /home/app-skel . | tar xvC $VOL_MOUNT
+	docker run --rm $IMAGE_NAME tar cC /home/app . | tar xvC $VOL_MOUNT
 }
 
 do_start() {
@@ -108,8 +108,8 @@ run() {
 		"stop"  )  do_stop ;;
 		"pull"  )  do_pull ;;
 		"home"  )  do_home ;;
-		"root"  )  exec docker exec -it $CONTAINER_NAME bash ;;
-		"app"   )  exec docker exec -it $CONTAINER_NAME bash -c 'cd /home/app && exec gosu app bash' ;;
+		"root"  )  docker exec -it $CONTAINER_NAME bash ;;
+		"app"   )  docker exec -it $CONTAINER_NAME bash -c 'cd /home/app && exec gosu app bash' ;;
 	esac
 }
 
