@@ -97,7 +97,7 @@ do_stop() {
 
 usage() {
 	echo "USAGE"
-	echo " $0 [ build | pull | home ]"
+	echo " $0 [ pull | home ]"
 	echo " $0 [ start | stop ]"
 	echo " $0 [ root | app ]"
 }
