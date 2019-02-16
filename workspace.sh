@@ -9,6 +9,11 @@ fi
 
 source $BASEDIR/config
 
+echo "---------------------------------"
+echo "IMAGE: $IMAGE_NAME"
+echo "CONTAINER: $CONTAINER_NAME"
+echo "---------------------------------"
+
 do_pull() {
 	docker pull $IMAGE_NAME
 }
