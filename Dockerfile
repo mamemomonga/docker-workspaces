@@ -10,6 +10,8 @@ RUN set -xe && \
 		sudo \
 		wget \
 		curl \
+		p7zip-full \
+		ca-certificates \
 		openssh-client \
 		build-essential \
 		apt-transport-https \
