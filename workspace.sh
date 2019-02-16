@@ -3,22 +3,16 @@ set -eu
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ ! -e "$BASEDIR/config" ]; then
-	cat > "$BASEDIR/config" << 'EOS'
-NAME="ws-ubuntu"
-
-IMAGE_NAME="mamemomonga/workspaces:ubuntu"
-CONTAINER_NAME=$NAME"_1"
-
-VOL_NAME=$CONTAINER_NAME
-VOL_MOUNT="$BASEDIR/home/app"
-EOS
+	echo "config file not exists."
+	exit 1
 fi
 
 source $BASEDIR/config
 
-do_build() {
-	docker build -t $IMAGE_NAME .
-}
+echo "---------------------------------"
+echo "IMAGE: $IMAGE_NAME"
+echo "CONTAINER: $CONTAINER_NAME"
+echo "---------------------------------"
 
 do_pull() {
 	docker pull $IMAGE_NAME
@@ -112,7 +106,6 @@ run() {
 	case "${1:-}" in
 		"start" )  do_start ;;
 		"stop"  )  do_stop ;;
-		"build" )  do_build ;;
 		"pull"  )  do_pull ;;
 		"home"  )  do_home ;;
 		"root"  )  exec docker exec -it $CONTAINER_NAME bash ;;
