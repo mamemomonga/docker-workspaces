@@ -1,43 +1,13 @@
-FROM debian:stretch
+FROM mamemomonga/workspaces:debian
 
 RUN set -xe && \
 	export DEBIAN_FRONTEND=noninteractive && \
 	apt-get update && \
 	apt-get install -y --no-install-recommends \
-		tzdata \
-		locales \
-		gosu \
-		sudo \
-		wget \
-		curl \
-		openssh-client \
-		build-essential \
-		apt-transport-https \
-		git-core \
-		vim \
-		screen \
-		man && \
-	rm -rf /var/lib/apt/lists/*
-
-ENV TZ Asia/Tokyo
+		python-pip python-yaml groff && \
+	rm -rf /var/lib/apt/lists/* && \
+	pip install awscli
 
 RUN set -xe && \
-	rm -f /etc/localtime && \
-	ln -s /usr/share/zoneinfo/${TZ} /etc/localtime && \
-	echo ${TZ} > /etc/timezone
-
-RUN set -xe && \
-	perl -i -nlpE 's!^# (en_US.UTF-8 UTF-8)!$1!; s!^# (ja_JP.UTF-8 UTF-8)!$1!; ' /etc/locale.gen && \
-	locale-gen && \
-	update-locale LANG=en_US.UTF-8 && \
-	sh -c "echo '3' | update-alternatives --config editor"
-
-RUN set -xe && \
-	useradd -m -s /bin/bash -u 10000 app && \
-	mv /home/app /home/app-skel
-
-ADD assets/ /
-
-RUN set -xe && \
-	echo 'source /etc/screenrc.local' >> /etc/screenrc
-
+	curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip && \
+	cd /tmp && unzip terraform.zip && mv terraform /usr/bin && rm -f terraform.zip
