@@ -67,11 +67,11 @@ ubuntu
 
 	$ ./workspace.sh start
 
-## rootでコンテナの中に入る
+## rootユーザでコンテナの中に入る
 
 	$ ./workspace.sh root
 
-## appでコンテナの中に入る
+## appユーザでコンテナの中に入る
 
 	$ ./workspace.sh app
 
