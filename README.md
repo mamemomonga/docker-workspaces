@@ -23,16 +23,19 @@ https://hub.docker.com/r/mamemomonga/workspaces
 
 	$ mkdir workspace
 	$ cd workspace
+	$ curl -o workspace.sh https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/workspace.sh
+	$ chmod 755 ./workspace.sh
 
 debian
 
-	$ curl -o workspace.sh https://raw.githubusercontent.com/mamemomonga/docker-workspaces/debian/workspace.sh
+	$ curl -o config https://raw.githubusercontent.com/mamemomonga/docker-workspaces/debian/config
 
 ubuntu
 
-	$ curl -o workspace.sh https://raw.githubusercontent.com/mamemomonga/docker-workspaces/ubuntu/workspace.sh
+	$ curl -o config https://raw.githubusercontent.com/mamemomonga/docker-workspaces/ubuntu/config
 
-	$ chmod 755 ./workspace.sh
+以下共通
+
 	$ ./workspace.sh pull home start
 	$ ./workspace.sh app
 	$ ./workspace.sh stop
