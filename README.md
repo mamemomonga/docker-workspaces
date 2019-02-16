@@ -8,17 +8,19 @@ git, vim, screen など、シェルでの各種作業を行う前提のいろい
 ローカルの home/app が [docker-volume-bindfs](https://github.com/lebokus/docker-volume-bindfs) によりコンテナの /home/app にマウントされます。
 これを経由することにより、コンテナ内部のappユーザ・グループをローカルのユーザ・グループにマッピングするようにしています。
 
-docker-volume-bindfs を導入する際に特権が求められるので許可をお願いします。
-
-ブランチ | ディストリビューション    | 環境
----------|---------------------------|----
-debian   | Debian 9 (stretch)        | 汎用
-ubuntu   | Ubuntu 18.04 LTS (buster) | 汎用
+* docker-volume-bindfs を導入する際に特権が求められるので許可をお願いします。
 
 * 本イメージは開発・作業用です。プロダクション環境での利用はおすすめしません。
 * /home/app 以下以外の変更はコンテナ終了後に消えます。
 
 https://hub.docker.com/r/mamemomonga/workspaces
+
+# イメージ一覧
+
+ブランチ | ディストリビューション    | 環境
+---------|---------------------------|----
+[debian](https://github.com/mamemomonga/docker-workspaces/tree/debian) | Debian 9 (stretch)        | 汎用
+[ubuntu](https://github.com/mamemomonga/docker-workspaces/tree/ubuntu) | Ubuntu 18.04 LTS (buster) | 汎用
 
 # 使い方 
 
