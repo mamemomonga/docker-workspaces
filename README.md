@@ -36,8 +36,12 @@ ubuntu
 
 以下共通
 
-	$ ./workspace.sh pull home start
-	$ ./workspace.sh app
+	$ ./workspace.sh pull home start app
+	$ ./workspace.sh stop
+
+再度起動してappユーザで入る
+
+	$ ./workspace.sh start app
 	$ ./workspace.sh stop
 
 ## 設定の確認
