@@ -15,7 +15,8 @@ docker-volume-bindfs を導入する際に特権が求められるので許可�
 debian   | Debian 9 (stretch)        | 汎用
 ubuntu   | Ubuntu 18.04 LTS (buster) | 汎用
 
-本イメージは開発・作業用です。プロダクション環境での利用はおすすめしません。
+* 本イメージは開発・作業用です。プロダクション環境での利用はおすすめしません。
+* /home/app 以下以外の変更はコンテナ終了後に消えます。
 
 https://hub.docker.com/r/mamemomonga/workspaces
 
@@ -36,28 +37,21 @@ ubuntu
 
 	$ curl -o config https://raw.githubusercontent.com/mamemomonga/docker-workspaces/ubuntu/config
 
-以下共通
+初回実行
 
-	$ ./workspace.sh pull home start app
-	$ ./workspace.sh stop
+	$ ./workspace.sh pull home start app stop
 
-再度起動してappユーザで入る
+再度起動
 
-	$ ./workspace.sh start app
-	$ ./workspace.sh stop
+	$ ./workspace.sh start app stop
 
 ## 設定の確認
 
-	$ ./workspace.sh
 	$ vim config
 
-## DockerHubからイメージ取得
+## イメージの取得
 
 	$ ./workspace.sh pull
-
-## ビルド
-
-	$ ./workspace.sh build
 
 ## ホームディレクトリの作成
 
