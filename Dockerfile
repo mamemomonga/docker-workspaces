@@ -35,8 +35,7 @@ RUN set -xe && \
 	sh -c "echo '3' | update-alternatives --config editor"
 
 RUN set -xe && \
-	useradd -m -s /bin/bash -u 10000 app && \
-	mv /home/app /home/app-skel
+	useradd -m -s /bin/bash -u 10000 app
 
 ADD assets/ /
 
