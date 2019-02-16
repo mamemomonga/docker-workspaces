@@ -1,6 +1,6 @@
 # 作業環境
 
-Debian Stretch(9)の汎用作業環境です。
+Ubuntu Bionic(18.04 LTS)の汎用作業環境です。
 
 コンテナ内部の  の appユーザが作成され、
 ローカル の home/app が bindfs により /home/app にマウントされます。
@@ -17,7 +17,7 @@ Debian Stretch(9)の汎用作業環境です。
 
 	$ mkdir workspace
 	$ cd workspace
-	$ curl -o workspace.sh https://raw.githubusercontent.com/mamemomonga/docker-workspaces/debian/workspace.sh
+	$ curl -o workspace.sh https://raw.githubusercontent.com/mamemomonga/docker-workspaces/ubuntu/workspace.sh
 	$ chmod 755 ./workspace.sh
 	$ ./workspace.sh pull home start
 	$ ./workspace.sh app

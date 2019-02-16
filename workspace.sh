@@ -4,9 +4,9 @@ BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ ! -e "$BASEDIR/config" ]; then
 	cat > "$BASEDIR/config" << 'EOS'
-NAME="ws-debian"
+NAME="ws-ubuntu"
 
-IMAGE_NAME="mamemomonga/workspaces:debian"
+IMAGE_NAME="mamemomonga/workspaces:ubuntu"
 CONTAINER_NAME=$NAME"_1"
 
 VOL_NAME=$CONTAINER_NAME

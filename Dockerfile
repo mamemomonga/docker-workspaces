@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM ubuntu:bionic
 
 RUN set -xe && \
 	export DEBIAN_FRONTEND=noninteractive && \
