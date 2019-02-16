@@ -10,6 +10,7 @@ RUN set -xe && \
 		sudo \
 		wget \
 		curl \
+		openssh-client \
 		build-essential \
 		apt-transport-https \
 		git-core \
