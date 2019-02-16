@@ -1,4 +1,4 @@
-NAME="ws-debian"
+NAME="ws-cloud-infra"
 
 IMAGE_NAME="mamemomonga/workspaces:cloud-infra"
 CONTAINER_NAME=$NAME"_1"
