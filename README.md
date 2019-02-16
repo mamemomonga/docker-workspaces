@@ -1,23 +1,37 @@
-# 作業環境
+# Dockerで利用する汎用作業環境
 
-Ubuntu Bionic(18.04 LTS)の汎用作業環境です。
+Dockerで使う汎用の作業環境です。
 
-コンテナ内部の  の appユーザが作成され、
-ローカル の home/app が bindfs により /home/app にマウントされます。
+git, vim, screen など、シェルでの各種作業を行う前提のいろいろと便利なものを詰め込んだものです。
 
-コンテナ内部の /home/app の appユーザ(UID:10000, GID:10000) のファイルは、
-ローカルがLinuxの場合はローカルのGID,UIDに、
-ローカルがmacOSの場合は0(root)にマッピングされ、docker for Macの機能でローカルUID,GIDにマッピングされます。
+コンテナ内部にappユーザが作成され、
+ローカルの home/app が bindfs によりコンテナの /home/app にマウントされます。
+bindfsを経由することにより、コンテナ内部のappユーザ・グループをローカルのユーザ・グループにマッピングするようにしています。
 
-[DockerHub](https://hub.docker.com/r/mamemomonga/workspace-ubuntu-bionic)
+ブランチ | ディストリビューション / 環境
+---------|-------------------------------
+debian   | Debian 9 (stretch)
+ubuntu   | Ubuntu 18.04 LTS (buster)
+
+本イメージは開発・作業用です。プロダクション環境での利用はおすすめしません。
+
+https://hub.docker.com/r/mamemomonga/workspaces
 
 # 使い方 
 
-# クイックスタート
+## クイックスタート
 
 	$ mkdir workspace
 	$ cd workspace
+
+debian
+
+	$ curl -o workspace.sh https://raw.githubusercontent.com/mamemomonga/docker-workspaces/debian/workspace.sh
+
+ubuntu
+
 	$ curl -o workspace.sh https://raw.githubusercontent.com/mamemomonga/docker-workspaces/ubuntu/workspace.sh
+
 	$ chmod 755 ./workspace.sh
 	$ ./workspace.sh pull home start
 	$ ./workspace.sh app
