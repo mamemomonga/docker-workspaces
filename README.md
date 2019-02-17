@@ -24,52 +24,67 @@ https://hub.docker.com/r/mamemomonga/workspaces
 
 # 使い方 
 
-## クイックスタート
+## クイックスタート(macOS)
 
 	$ mkdir workspace
 	$ cd workspace
-	$ curl -o workspace.sh https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/workspace.sh
-	$ chmod 755 ./workspace.sh
 
-debian
+macOS
 
-	$ curl -o config https://raw.githubusercontent.com/mamemomonga/docker-workspaces/debian/config
+	$ curl -o workspace https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/dist/workspace-darwin-amd64
+	$ chmod 755 ./workspace
 
-ubuntu
+Linux
 
-	$ curl -o config https://raw.githubusercontent.com/mamemomonga/docker-workspaces/ubuntu/config
+	$ curl -o workspace https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/dist/workspace-linux-amd64
+	$ chmod 755 ./workspace
+
+Windows(未検証)
+
+https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/dist/workspace-windows-amd64.exe
 
 初回実行
 
-	$ ./workspace.sh pull home start app stop
+	$ ./workspace config-debian
+	$ ./workspace pull home start app stop
 
 再度起動
 
-	$ ./workspace.sh start app stop
+	$ ./workspace start app stop
+
+## 設定テンプレートの取得
+
+debian
+
+	$ ./workspace config-debian
+
+ubuntu
+
+	$ ./workspace config-ubuntu
 
 ## 設定の確認
 
-	$ vim config
+	$ vim config.yaml
 
 ## イメージの取得
 
-	$ ./workspace.sh pull
+	$ ./workspace pull
 
 ## ホームディレクトリの作成
 
-	$ ./workspace.sh home
+	$ ./workspace home
 
 ## コンテナの起動
 
-	$ ./workspace.sh start
+	$ ./workspace start
 
-## rootユーザでコンテナの中に入る
+## rootユーザでコンテナの中にログイン
 
-	$ ./workspace.sh root
+	$ ./workspace root
 
-## appユーザでコンテナの中に入る
+## appユーザでコンテナの中にログイン
 
-	$ ./workspace.sh app
+	$ ./workspace app
 
 ## コンテナの停止
 
