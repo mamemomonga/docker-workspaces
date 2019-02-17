@@ -1,7 +1,0 @@
-NAME="ws-cloud-infra"
-
-IMAGE_NAME="mamemomonga/workspaces:cloud-infra"
-CONTAINER_NAME=$NAME"_1"
-
-VOL_NAME=$CONTAINER_NAME
-VOL_MOUNT="$BASEDIR/home/app"

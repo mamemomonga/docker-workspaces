@@ -1,0 +1,11 @@
+
+docker:
+  image: 'mamemomonga/workspaces:cloud-infra'
+  container: 'ws-cloud-infra_1'
+
+volume:
+  name:  'ws-cloud-infra_1'
+  # 先頭に/があると絶対パス
+  # なければカレントディレクトリからの相対パス
+  mount: 'home/app'
+
