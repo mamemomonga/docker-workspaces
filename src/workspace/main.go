@@ -9,7 +9,11 @@ import (
 )
 
 func usage() {
-	fmt.Println("USAGE: [ pull | home | start | stop | root | app ]")
+	fmt.Println(fmt.Sprintf("Usage: %s arguments",os.Args[0]))
+	fmt.Println("Arguments:")
+	fmt.Println("   pull, home")
+	fmt.Println("   start, stop")
+	fmt.Println("   config-debian, config-ubuntu")
 	os.Exit(1)
 }
 
@@ -38,6 +42,8 @@ func main() {
 			case "stop":  do_stop()
 			case "root":  do_root()
 			case "app":   do_app()
+			case "config-debian": do_fetch_config("debian")
+			case "config-ubuntu": do_fetch_config("ubuntu")
 			default: usage()
 		}
 	}
