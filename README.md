@@ -40,7 +40,7 @@ Docker for macOS
 	$ curl -o workspace https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/dist/workspace-darwin-amd64
 	$ chmod 755 ./workspace
 
-Docker for Windows
+Docker for Windows(未検証)
 
 	> mkdir ws
 	> cd ws
