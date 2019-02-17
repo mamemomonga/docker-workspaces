@@ -24,24 +24,27 @@ https://hub.docker.com/r/mamemomonga/workspaces
 
 # 使い方 
 
-## クイックスタート(macOS)
-
-	$ mkdir workspace
-	$ cd workspace
-
-macOS
-
-	$ curl -o workspace https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/dist/workspace-darwin-amd64
-	$ chmod 755 ./workspace
+## クイックスタート
 
 Linux
 
+	$ mkdir ws
+	$ cd ws
 	$ curl -o workspace https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/dist/workspace-linux-amd64
 	$ chmod 755 ./workspace
 
-Windows(未検証)
+Docker for macOS
 
-	$ bitsadmin /TRANSFER workspace https://github.com/mamemomonga/docker-workspaces/raw/master/dist/workspace-windows-amd64.exe %CD%\workspace.exe
+	$ mkdir ws
+	$ cd ws
+	$ curl -o workspace https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/dist/workspace-darwin-amd64
+	$ chmod 755 ./workspace
+
+Docker for Windows
+
+	> mkdir ws
+	> cd ws
+	> bitsadmin /TRANSFER workspace https://github.com/mamemomonga/docker-workspaces/raw/master/dist/workspace-windows-amd64.exe %CD%\workspace.exe
 
 以下、Windowsの場合は**./workspace** を **workspace.exe** に読み替えて下さい。
 
