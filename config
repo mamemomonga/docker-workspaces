@@ -1,7 +1,0 @@
-NAME="ws-ubuntu"
-
-IMAGE_NAME="mamemomonga/workspaces:ubuntu"
-CONTAINER_NAME=$NAME"_1"
-
-VOL_NAME=$CONTAINER_NAME
-VOL_MOUNT="$BASEDIR/home/app"
