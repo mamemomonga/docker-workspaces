@@ -46,7 +46,7 @@ Docker for Windows
 	> cd ws
 	> bitsadmin /TRANSFER workspace https://github.com/mamemomonga/docker-workspaces/raw/master/dist/workspace-windows-amd64.exe %CD%\workspace.exe
 
-以下、Windowsの場合は**./workspace** を **workspace.exe** に読み替えて下さい。
+以下、Windowsの場合は **./workspace** を **workspace.exe** に読み替えて下さい。
 
 初回実行
 
