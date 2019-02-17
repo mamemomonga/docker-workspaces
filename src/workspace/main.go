@@ -104,7 +104,14 @@ func do_start() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		if string(b[0:len(b)-1]) != "lebokus/bindfs:latest" {
+		installed := false
+		if len(b) > 0 {
+			if string(b[0:len(b)-1]) == "lebokus/bindfs:latest" {
+				installed = true
+			}
+		}
+
+		if ! installed {
 			log.Println("Install: docker plugin lebokus/bindfs:latest")
 			if err := run_command("docker","plugin","install","lebokus/bindfs"); err != nil {
 				log.Fatal(err)
@@ -119,7 +126,13 @@ func do_start() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		if string(b[0:len(b)-1]) != "lebokus/bindfs:latest true" {
+		enabled := false
+		if len(b) > 0 {
+			if string(b[0:len(b)-1]) == "lebokus/bindfs:latest true" {
+				enabled = true
+			}
+		}
+		if ! enabled {
 			log.Println("Enable: docker plugin lebokus/bindfs:latest")
 			if err := run_command("docker","plugin","enable","lebokus/bindfs"); err != nil {
 				log.Fatal(err)
