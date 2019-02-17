@@ -18,3 +18,7 @@ RUN set -xe && \
 	chown -R app:app /usr/local/google-cloud-sdk && \
 	gosu app /usr/local/google-cloud-sdk/install.sh -q
 
+RUN set -xe && \
+	echo "source /usr/local/google-cloud-sdk/path.bash.inc" >> /home/app/.bashrc && \
+	echo "source /usr/local/google-cloud-sdk/completion.bash.inc" >> /home/app/.bashrc
+
