@@ -13,7 +13,7 @@ func usage() {
 	fmt.Println("Arguments:")
 	fmt.Println("   pull, home")
 	fmt.Println("   start, stop")
-	fmt.Println("   config-debian, config-ubuntu")
+	fmt.Println("   config-debian, config-ubuntu, config-cloud-infra")
 	os.Exit(1)
 }
 
@@ -29,6 +29,7 @@ func main() {
 		switch i {
 			case "config-debian": do_fetch_config("debian"); os.Exit(0)
 			case "config-ubuntu": do_fetch_config("ubuntu"); os.Exit(0)
+			case "config-cloud-infra": do_fetch_config("cloud-infra"); os.Exit(0)
 		}
 	}
 
