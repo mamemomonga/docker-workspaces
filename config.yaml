@@ -1,0 +1,11 @@
+
+docker:
+  image: 'mamemomonga/workspaces:debian'
+  container: 'ws-debian_1'
+
+volume:
+  name:  'ws-debian_1'
+  # 先頭に/があると絶対パス
+  # なければカレントディレクトリからの相対パス
+  mount: 'home/app'
+
