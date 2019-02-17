@@ -5,7 +5,7 @@ import (
 	"os"
 	"fmt"
 	"os/exec"
-	"github.com/davecgh/go-spew/spew"
+//	"github.com/davecgh/go-spew/spew"
 )
 
 func usage() {
@@ -35,7 +35,7 @@ func main() {
 
 	for _,i := range actions {
 		switch i {
-			case "config": do_config()
+//			case "config": do_config()
 			case "home":  do_home()
 			case "pull":  do_pull()
 			case "start": do_start()
@@ -190,7 +190,7 @@ func do_app() {
 	}
 }
 
-func do_config() {
-	spew.Dump(config)
-}
+//func do_config() {
+//	spew.Dump(config)
+//}
 
