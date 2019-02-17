@@ -9,6 +9,7 @@ import (
 )
 
 func do_fetch_config(branch string) {
+	info_run("Get configfile")
 
 	url := fmt.Sprintf("https://raw.githubusercontent.com/mamemomonga/docker-workspaces/%s/config.yaml",branch)
 	filename := "config.yaml"

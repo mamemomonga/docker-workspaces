@@ -21,17 +21,22 @@ var config Config
 
 func main() {
 
+	if len(os.Args) < 2 {
+		usage()
+	}
+	actions := os.Args[1:]
+	for _,i := range actions {
+		switch i {
+			case "config-debian": do_fetch_config("debian"); os.Exit(0)
+			case "config-ubuntu": do_fetch_config("ubuntu"); os.Exit(0)
+		}
+	}
+
 	cfg, err := LoadConfig("config.yaml")
 	if err != nil {
 		log.Fatal(err)
 	}
 	config = cfg
-
-	if len(os.Args) < 2 {
-		usage()
-	}
-
-	actions := os.Args[1:]
 
 	for _,i := range actions {
 		switch i {
@@ -42,8 +47,6 @@ func main() {
 			case "stop":  do_stop()
 			case "root":  do_root()
 			case "app":   do_app()
-			case "config-debian": do_fetch_config("debian")
-			case "config-ubuntu": do_fetch_config("ubuntu")
 			default: usage()
 		}
 	}
