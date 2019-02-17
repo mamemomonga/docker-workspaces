@@ -1,7 +1,0 @@
-NAME="ws-debian"
-
-IMAGE_NAME="mamemomonga/workspaces:debian"
-CONTAINER_NAME=$NAME"_1"
-
-VOL_NAME=$CONTAINER_NAME
-VOL_MOUNT="$BASEDIR/home/app"
