@@ -9,11 +9,15 @@ import (
 )
 
 func usage() {
-	fmt.Println(fmt.Sprintf("Usage: %s arguments",os.Args[0]))
-	fmt.Println("Arguments:")
-	fmt.Println("   pull, home")
-	fmt.Println("   start, stop")
-	fmt.Println("   config-debian, config-ubuntu, config-cloud-infra")
+	fmt.Println(fmt.Sprintf("Usage: %s COMMAND ...",os.Args[0]))
+	fmt.Println("COMMAND:")
+	fmt.Println("  config-debian")
+	fmt.Println("  config-ubuntu")
+	fmt.Println("  config-cloud-infra")
+	fmt.Println("  pull")
+	fmt.Println("  home")
+	fmt.Println("  start")
+	fmt.Println("  stop")
 	os.Exit(1)
 }
 
@@ -96,6 +100,12 @@ func do_start() {
 		if len(b) > 0 {
 			log.Fatal(fmt.Sprintf("Container %s is already exists.", config.Docker.Container))
 		}
+	}
+
+	// ホームディレクトリがない
+	if _, err := os.Stat( config.Volume.Mount ); os.IsNotExist(err) {
+		log.Printf("%s not exists.\n",config.Volume.Mount)
+		os.Exit(1)
 	}
 
 	// bindfsプラグインがなければインストールする
