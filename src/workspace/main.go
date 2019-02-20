@@ -14,10 +14,15 @@ func usage() {
 	fmt.Println("  config-debian")
 	fmt.Println("  config-ubuntu")
 	fmt.Println("  config-cloud-infra")
+	fmt.Println("  -------")
 	fmt.Println("  pull")
 	fmt.Println("  home")
+	fmt.Println("  -------")
 	fmt.Println("  start")
 	fmt.Println("  stop")
+	fmt.Println("  -------")
+	fmt.Println("  root")
+	fmt.Println("  app")
 	os.Exit(1)
 }
 
