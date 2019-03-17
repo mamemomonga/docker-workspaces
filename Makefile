@@ -1,21 +1,16 @@
-.PHONY: all
 
-all: \
-	dist/workspace-darwin-amd64 \
-	dist/workspace-linux-amd64 \
-	dist/workspace-windows-amd64.exe
+DOCKER_IMAGE:=workspace_build
 
-build:
-dist/workspace-darwin-amd64:
+dist:
 	mkdir -p dist
-	GOOS=darwin GOARCH=amd64 go build -o $@ ./src/workspace
-
-dist/workspace-linux-amd64:
-	GOOS=linux GOARCH=amd64 go build -o $@ ./src/workspace
-
-dist/workspace-windows-amd64.exe:
-	GOOS=windows GOARCH=amd64 go build -o $@ ./src/workspace
+	docker build -t $(DOCKER_IMAGE) .
+	# docker run --rm -it $(DOCKER_IMAGE)
+	docker run --rm $(DOCKER_IMAGE) tar cC /go/src/workspace/bin . | tar xvC dist
 
 clean:
 	rm -rf dist
-	
+
+purge: clean
+	docker rmi -f $(DOCKER_IMAGE)
+
+.PHONY: clean purge
