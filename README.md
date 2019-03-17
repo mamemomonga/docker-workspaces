@@ -26,6 +26,19 @@ https://hub.docker.com/r/mamemomonga/workspaces
 
 ## クイックスタート
 
+Docker for mac
+
+	$ mkdir ws
+	$ cd ws
+	$ curl -o workspace https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/dist/workspace-darwin-amd64
+	$ chmod 755 ./workspace
+	$ ./workspace config-debian
+	$ ./workspace pull home start
+	$ ./workspace root
+	$ ./workspace stop
+
+## 詳細
+
 Linux
 
 	$ mkdir ws
@@ -33,7 +46,7 @@ Linux
 	$ curl -o workspace https://raw.githubusercontent.com/mamemomonga/docker-workspaces/master/dist/workspace-linux-amd64
 	$ chmod 755 ./workspace
 
-Docker for macOS
+Docker for mac
 
 	$ mkdir ws
 	$ cd ws
