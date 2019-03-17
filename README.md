@@ -9,7 +9,15 @@
 これによってコンテナ内部のappユーザ・グループをローカルのユーザ・グループにマッピングするようにしていますので、
 コンテナ内部とホスト側でのユーザ・グループの食い違いが発生しません。
 
-* docker-volume-bindfs を導入する際に特権が求められるので許可をお願いします。
+docker-volume-bindfs導入時に以下のような質問が表示されますので、yを入力して許可してください。
+
+	Plugin "lebokus/bindfs" is requesting the following privileges:
+	 - mount: [/var/lib/docker/plugins/]
+	 - mount: [/]
+	 - device: [/dev/fuse]
+	 - capabilities: [CAP_SYS_ADMIN]
+	Do you grant the above permissions? [y/N] y
+
 * 本イメージは開発・作業用です。プロダクション環境での利用はおすすめしません。
 * /home/app 以下以外の変更は、コンテナ終了後に消えます。
 
