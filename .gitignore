@@ -1,3 +1,4 @@
 /home
 *.swp
 /config.yaml
+/workspace

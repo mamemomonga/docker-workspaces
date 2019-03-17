@@ -30,6 +30,20 @@ https://hub.docker.com/r/mamemomonga/workspaces
 [debian](https://github.com/mamemomonga/docker-workspaces/tree/debian) | Debian 9 (stretch)        | 汎用
 [ubuntu](https://github.com/mamemomonga/docker-workspaces/tree/ubuntu) | Ubuntu 18.04 LTS (buster) | 汎用
 
+debian
+
+* Timezoneは Asia/Tokyoです。
+* screen, openssh-client, build-essential, jqなどが導入済みです。
+* 標準エディタはvimです。
+* appユーザにおいてsudo コマンドはパスワードなしで実行可能です。
+
+ubuntu
+
+* Timezoneは Asia/Tokyoです。
+* screen, openssh-client, build-essentialなどが導入済みです。
+* 標準エディタはvimです。
+
+
 # 使い方 
 
 ## クイックスタート
