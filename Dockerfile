@@ -18,7 +18,8 @@ RUN set -xe && \
 		git-core \
 		vim \
 		screen \
-		man && \
+		man \
+		jq && \
 	rm -rf /var/lib/apt/lists/*
 
 ENV TZ Asia/Tokyo
@@ -32,10 +33,12 @@ RUN set -xe && \
 	perl -i -nlpE 's!^# (en_US.UTF-8 UTF-8)!$1!; s!^# (ja_JP.UTF-8 UTF-8)!$1!; ' /etc/locale.gen && \
 	locale-gen && \
 	update-locale LANG=en_US.UTF-8 && \
-	sh -c "echo '3' | update-alternatives --config editor"
+	update-alternatives --set editor /usr/bin/vim.basic
 
 RUN set -xe && \
-	useradd -m -s /bin/bash -u 10000 app
+	useradd -m -s /bin/bash -u 10000 app && \
+	echo "app ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/wheel_user && \
+	chmod 600 /etc/sudoers.d/wheel_user
 
 ADD assets/ /
 
