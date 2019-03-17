@@ -108,3 +108,14 @@ ubuntu
 
 	$ ./workspace.sh stop
 
+
+## アンインストール
+
+停止・イメージ削除・プラグイン削除(debianの場合)
+
+	$ ./workspace stop
+	$ docker rmi mamemomonga/workspaces:debian
+	$ docker plugin disable lebokus/bindfs:latest
+	$ docker plugin rm lebokus/bindfs:latest
+
+
