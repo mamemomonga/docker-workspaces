@@ -106,8 +106,7 @@ ubuntu
 
 ## コンテナの停止
 
-	$ ./workspace.sh stop
-
+	$ ./workspace stop
 
 ## アンインストール
 
