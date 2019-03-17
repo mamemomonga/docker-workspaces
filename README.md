@@ -35,6 +35,7 @@ Docker for mac
 	$ ./workspace config-debian
 	$ ./workspace pull home start
 	$ ./workspace root
+	$ ./workspace app
 	$ ./workspace stop
 
 ## 詳細
