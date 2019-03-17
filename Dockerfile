@@ -4,7 +4,10 @@ RUN set -xe && \
 	export DEBIAN_FRONTEND=noninteractive && \
 	apt-get update && \
 	apt-get install -y --no-install-recommends \
-		python-pip python-yaml groff && \
+		python-pip \
+		python-yaml \
+		groff \
+		jq && \
 	rm -rf /var/lib/apt/lists/* && \
 	pip install awscli
 
