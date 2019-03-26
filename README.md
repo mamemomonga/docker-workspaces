@@ -3,6 +3,7 @@
 * Dockerで使う汎用のCLI作業環境です。
 * git, vim, screen など、シェルでの各種作業を行う前提のいろいろと便利なものを詰め込んだものです。
 * Dockerコマンドを実行し、プラグインの導入や起動を手助けするプログラムが付属しています(workspace)。ソースコードは[こちら](./src)。
+* それぞれのDocker Imageは、ブランチごとに分けています。
 
 コンテナ内部にappユーザが作成され、
 ローカルの home/app が [docker-volume-bindfs](https://github.com/lebokus/docker-volume-bindfs) によりコンテナの /home/app にマウントされます。
@@ -20,6 +21,8 @@ docker-volume-bindfs導入時に以下のような質問が表示されますの
 
 * 本イメージは開発・作業用です。プロダクション環境での利用はおすすめしません。
 * /home/app 以下以外の変更は、コンテナ終了後に消えます。
+
+# Docker Hub
 
 https://hub.docker.com/r/mamemomonga/workspaces
 
