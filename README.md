@@ -1,8 +1,8 @@
 # Dockerで利用する汎用作業環境
 
-* Dockerで使う汎用の作業環境です。
+* Dockerで使う汎用のCLI作業環境です。
 * git, vim, screen など、シェルでの各種作業を行う前提のいろいろと便利なものを詰め込んだものです。
-* Dockerコマンドを実行し、プラグインの導入や起動を手助けするプログラムが付属しています。ソースコードは[こちら](./src)。
+* Dockerコマンドを実行し、プラグインの導入や起動を手助けするプログラムが付属しています(workspace)。ソースコードは[こちら](./src)。
 
 コンテナ内部にappユーザが作成され、
 ローカルの home/app が [docker-volume-bindfs](https://github.com/lebokus/docker-volume-bindfs) によりコンテナの /home/app にマウントされます。
@@ -29,6 +29,7 @@ https://hub.docker.com/r/mamemomonga/workspaces
 ---------|---------------------------|----
 [debian](https://github.com/mamemomonga/docker-workspaces/tree/debian) | Debian 9 (stretch)        | 汎用
 [ubuntu](https://github.com/mamemomonga/docker-workspaces/tree/ubuntu) | Ubuntu 18.04 LTS (buster) | 汎用
+[cloud-infra](https://github.com/mamemomonga/docker-workspaces/tree/cloud-infra) | Debian 9 (stretch) | GCP, AWS管理用
 
 debian
 
@@ -43,6 +44,9 @@ ubuntu
 * screen, openssh-client, build-essentialなどが導入済みです。
 * 標準エディタはvimです。
 
+cloud-infra
+
+* debianに加えて terraform, Google Cloud SDK, AWSCLIが導入済みです。
 
 # 使い方 
 
@@ -139,5 +143,3 @@ ubuntu
 	$ docker rmi mamemomonga/workspaces:debian
 	$ docker plugin disable lebokus/bindfs:latest
 	$ docker plugin rm lebokus/bindfs:latest
-
-
