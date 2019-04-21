@@ -45,3 +45,5 @@ ADD assets/ /
 RUN set -xe && \
 	echo 'source /etc/screenrc.local' >> /etc/screenrc
 
+CMD ["sleep","infinity"]
+
