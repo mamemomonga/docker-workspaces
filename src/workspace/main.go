@@ -183,15 +183,31 @@ func do_start() {
 		}
 	}
 
-	// コンテナ起動
-	log.Printf("Start Container: %s", config.Volume.Name)
-	if err := run_command("docker","run","--rm","-d",
+	// 起動引数
+	run_args := []string{
+		"run","--rm","-d",
 		"--hostname", config.Docker.Container,
 		"--name", config.Docker.Container,
 		"-v", fmt.Sprintf("%s:%s", config.Volume.Name, "/home/app"),
-		config.Docker.Image,
-		"sleep","infinity",
-	); err != nil {
+	}
+
+	// ポート番号
+	if config.Ports != nil {
+		for _,v := range config.Ports {
+			run_args = append(run_args,"-p",v)
+		}
+	}
+
+	// イメージとコマンド
+	run_args = append(run_args,
+		config.Docker.Image, "sleep","infinity",
+	)
+
+	// spew.Dump(run_args)
+
+	// コンテナ起動
+	log.Printf("Start Container: %s", config.Volume.Name)
+	if err := run_command("docker", run_args...); err != nil {
 		log.Fatal(err)
 	}
 
@@ -222,7 +238,7 @@ func do_app() {
 	}
 }
 
-//func do_config() {
-//	spew.Dump(config)
-//}
+// func do_config() {
+// 	spew.Dump(config)
+// }
 

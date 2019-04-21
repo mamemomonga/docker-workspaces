@@ -15,6 +15,7 @@ type Config struct {
 	Docker  CDocker `yaml:"docker"`
 	Volume  CVolume `yaml:"volume"`
 	Runtime CRuntime
+	Ports   []string `yaml:"ports"`
 }
 
 type CDocker struct {
