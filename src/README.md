@@ -1,6 +1,6 @@
 # workspace
 
-docker コマンドを実行するラッパーです
+docker コマンドを実行するツールです
 
 # 開発
 
